@@ -18,8 +18,6 @@ microservice:
         uri : http://ORDER-SERVICE/order/bookOrder
 
 spring:
-  application:
-    name: order-poller
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     url: jdbc:sqlserver://localhost;databaseName=txOutboxDb;encrypt=true;trustServerCertificate=true
