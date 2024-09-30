@@ -16,3 +16,26 @@ microservice:
     endpoints :
       endpoint :
         uri : http://ORDER-SERVICE/order/bookOrder
+
+spring:
+  application:
+    name: order-poller
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost;databaseName=txOutboxDb;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: abcd1234
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+order:
+  poller:
+    topic:
+      name: unprocessed-order-events
