@@ -1,12 +1,29 @@
-spring:
-  application:
-    name: Config-Prod
+eureka:
+  instance:
+    prefer-ip-address: true
+  client :
+    fetch-registry: true
+    register-with-eureka : true
+    service-url:
+      defaultZone : http://localhost:8761/eureka
 
-#eureka:
-#  instance:
-#    prefer-ip-address: true
-#  client :
-#    fetch-registry: true
-#    register-with-eureka : true
-#    service-url:
-#      defaultZone : http://localhost:8761/eureka
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://10.63.16.153:30116;databaseName=outboxdb;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: abcd1234
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+order:
+  poller:
+    topic:
+      name: unprocessed-order-events
