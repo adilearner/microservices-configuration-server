@@ -17,6 +17,9 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
   kafka:
     producer:
       bootstrap-servers: localhost:9092
