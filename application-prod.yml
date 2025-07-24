@@ -10,9 +10,9 @@
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://10.63.16.153:30116;databaseName=outboxdb;encrypt=true;trustServerCertificate=true
+    url: jdbc:sqlserver://localhost;databaseName=txOutboxDb;encrypt=true;trustServerCertificate=true
     username: sa
-    password: Tcs@12345
+    password: abcd1234
   jpa:
     show-sql: true
     hibernate:
