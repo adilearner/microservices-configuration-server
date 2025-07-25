@@ -36,4 +36,4 @@ spring:
 order:
   poller:
     topic:
-      name: unprocessed-order-events
+      name: unprocessed-order
